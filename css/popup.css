@@ -1,0 +1,117 @@
+body{
+	padding: 0 0 10px 0;
+	width: 310px;
+	margin: 0;
+}
+*{
+	font-size: 14px;
+	font-family: arial,FreeSans,Helvetica,sans-serif;
+}
+
+a{
+    color: #333;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.instagramimage{
+	margin: 5px 0;
+}
+
+.imageframe{
+	padding: 5px;
+	
+}
+
+.imageframe-even{
+	background-color: #8cb0e3;
+}
+
+table.meta{
+	width: 100%;
+}
+
+#loader{
+	width: 220px;
+	margin: 0 auto;
+}
+
+td.from-image{
+	width: 20px;
+}
+
+td.from-time{
+	width: 84px;
+	font-size: 0.8em;
+	text-align: right;
+}
+
+.likes,
+.comments{
+	margin-bottom: 5px;
+}
+
+.favcoment{
+	margin: 10px 0;
+}
+
+.likelink{
+	text-decoration: none;
+	background-color: #ff6e16;
+	padding: 5px 10px;
+	font-size: 1.3em;
+	color: black;
+	border-radius: 5px;
+}
+
+#welcome td{
+	text-align: center;
+	background-color: #255d80;
+	color: #ffffff;
+    border-radius: 5px;
+	border: 2px solid #355D80
+}
+
+#welcome td span{
+	display: block;
+	background-color: #8cb0e3;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#meimg{
+	float: left;
+	width: 70px;
+	height: 70px;
+	margin-right: 5px;
+}
+
+a.like:before { content:url('/img/heart.png')" "; }
+a.unlike:before { content:url('/img/heart_empty.png')" "; }
+
+#footer{
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+#headercontrol{
+    background-color: #878787;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 10px 5px;
+    margin-bottom: 10px;
+}
+
+#headercontrol a{
+    display: inline-block;
+    width: 49%;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#logout{
+    text-align: right;
+}
