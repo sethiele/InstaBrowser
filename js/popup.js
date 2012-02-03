@@ -137,6 +137,7 @@ var userFeed = function(){
 					'</div>' + 
 					'<div class="favcoment">' +
 						'<a href="" class="' + likeclass + ' likelink" data-image="' + value.id + '" data-likestat="' + likeclass + '">' + liketext + '</a>' +
+						'<a href="https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '" target="_blank" class="sm sm-gpl">&nbsp;</a> ' +
 					'</div>' + 
 				'</div>');
 			}catch(e){
