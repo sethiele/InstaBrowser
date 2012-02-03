@@ -84,6 +84,7 @@ var userFeed = function(){
 	  success: function(msg){
 		$('#loader').hide();
 		console.log(msg.data);
+		anz = 0;
 		$.each(msg.data, function(id, value){
 			try{
 				var pTime = new Date();
@@ -108,7 +109,7 @@ var userFeed = function(){
 					liketext = 'Like it';
 				}
 				
-				if(id % 2){
+				if(anz % 2){
 					evenodd = 'even';
 				} else {
 					evenodd = 'odd';
@@ -137,11 +138,14 @@ var userFeed = function(){
 					'</div>' + 
 					'<div class="favcoment">' +
 						'<a href="" class="' + likeclass + ' likelink" data-image="' + value.id + '" data-likestat="' + likeclass + '">' + liketext + '</a>' +
-						'<a href="https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '" target="_blank" class="sm sm-gpl">&nbsp;</a> ' +
+						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">&nbsp;</a> ' +
+						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">&nbsp;</a> ' +
+						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=instaChro&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">&nbsp;</a> ' +
 					'</div>' + 
 				'</div>');
+				anz++;
 			}catch(e){
-				
+				console.log('ERROR', value);
 			}
 			
 		});
