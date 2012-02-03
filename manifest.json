@@ -1,7 +1,7 @@
 {
-    "name": "instagram™ viewer for Google Chrome™",
-    "version": "1.1",
-    "description": "view your instagram™ photos in Google Chrome™",
+    "name": "Instagram™ viewer for Google Chrome™",
+    "version": "1.2",
+    "description": "view your Instagram™ photos in Google Chrome™",
     "icons": 
     {
         "16": "img/icon_16.png",
@@ -13,7 +13,7 @@
 	],
     "browser_action":
     {
-        "default_title": "instagram™ Stream",
+        "default_title": "Instagram™ Stream",
         "default_icon": "img/icon_19.png",
         "default_popup": "popup.html"
     },

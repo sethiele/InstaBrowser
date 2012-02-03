@@ -5,7 +5,7 @@ body{
 	margin-bottom: 0;
 }
 *{
-	font-size: 14px;
+	font-size: 12px;
 	font-family: arial,FreeSans,Helvetica,sans-serif;
 }
 
@@ -27,7 +27,17 @@ a:hover{
 }
 
 .imageframe-even{
-	background-color: #8cb0e3;
+	background-color: #675d52;
+	color: #ffffff;
+	border-radius: 10px;
+}
+
+.imageframe-even a{
+    color: #ddd;
+}
+
+.imageframe-even table{
+    color: #ffffff;
 }
 
 table.meta{
@@ -63,9 +73,33 @@ td.from-time{
 	text-decoration: none;
 	background-color: #ff6e16;
 	padding: 7px 10px;
-	font-size: 1.3em;
+	font-size: 1.5em;
 	color: black;
 	border-radius: 5px;
+}
+
+.sm{
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: -5px;
+    text-decoration: none;
+}
+
+.sm-gpl{
+    background: url('/img/sm.png') no-repeat 0 0 white;
+    left: 110px;
+}
+
+.sm-fb{
+    background: url('/img/sm.png') no-repeat 0 -32px white;
+    left: 147px;
+}
+
+.sm-tw{
+    background: url('/img/sm.png') no-repeat 0 -64px white;
+    left: 184px;
 }
 
 #welcome td{
@@ -116,14 +150,4 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 
 #logout{
     text-align: right;
-}
-
-.sm{
-    display: inline-block;
-    height: 32px;
-    width: 32px;
-    background: url('/img/sm.png') no-repeat 0 0 white;
-    position: absolute;
-    top: -5px;
-    left: 100px;
 }
