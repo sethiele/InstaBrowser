@@ -64,6 +64,20 @@ td.from-time{
 	margin-bottom: 5px;
 }
 
+.comments{
+    list-style-image: url(/img/spechbubble_10.png);
+    padding-left: 18px;
+}
+
+.comments li{
+    margin-bottom: 3px;
+}
+
+.likes{
+    list-style-image: url(/img/heart_10.png);
+    padding-left: 18px;
+}
+
 .favcoment{
 	margin: 10px 0;
 	position: relative;
@@ -142,7 +156,7 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 
 #headercontrol a{
     display: inline-block;
-    width: 49%;
+    width: 32%;
     font-size: 0.8em;
     font-weight: bold;
     color: #ffffff;
@@ -150,4 +164,28 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 
 #logout{
     text-align: right;
+}
+
+#stream{
+    text-align: center;
+}
+
+.username{
+    text-decoration: underline;
+}
+
+.username:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#headline{
+    clear: both;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+#searchbox{
+    width:230px;
+    display: inline;
 }
