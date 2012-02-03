@@ -8,12 +8,19 @@
 	<body>
 		<div id="headercontrol">
 			<a href="#" id="close" onclick="window.close();">Close</a>
+			<a href="#" id="stream" onclick="myStream();">Stream</a>
 			<a href="#" id="logout" title="share on google+" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
+			
+			<div id="search">
+				<form id="searchform">
+					<input type="text" name="search" id="searchbox"> <input type="submit" name="searchbtn" id="searchbtn" value="Search" />
+				</form>
+			</div>
 		</div>
 		
 		<div id="welcome">
 			<img src="" id="meimg" />
-			Welcome <span id="mename"></span> to instaChrome
+			<span id="mename"></span>
 			<table>
 				<tr>
 					<td><span id="photocount"></span>Photos</td>
@@ -22,6 +29,8 @@
 				</tr>
 			</table>
 		</div>
+		
+		<div id="headline"></div>
 		
 		<div id="images">
 			<img src="/img/loader.gif" id="loader" />
@@ -32,7 +41,7 @@
 				This product uses the Instagram API but is not endorsed or certified by Instagram.
 			</p>
 			<p>
-				Report a Bug on <a href="http://twitter.com/insaChro" target="_blank">Twitter</a>
+				Report a Bug on <a href="http://twitter.com/insaChro" target="_blank">Twitter</a> 
 			</p>
 		</div>
 	</body>
