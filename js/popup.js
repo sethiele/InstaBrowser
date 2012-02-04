@@ -138,15 +138,22 @@ var buildComments = function(caption, comments){
 	return ret;
 }
 
-var readStream = function(getData){
+var readStream = function(getData, sendData){
     showLoader();
     var requestURL = APIURL + "/users/self/feed";
     if(getData){
         requestURL = APIURL + getData;
     }
+    if(sendData){
+        sendData = '&' + sendData;
+    } else {
+        sendData = '';
+    }
+    
+    
     $.ajax({
         url: requestURL,
-        data: "access_token=" + instaAuth.getAccessToken(),
+        data: "access_token=" + instaAuth.getAccessToken() + sendData,
         success: function(msg){
             $('#loader').hide();
     		console.log(msg.data);
@@ -259,3 +266,17 @@ $(function(){
 	    }
 	});
 });
+
+
+function getLocation(){
+	navigator.geolocation.getCurrentPosition(gotLocation, noLocation);
+}
+function gotLocation(position){
+	var lat = position.coords.latitude;
+	var long = position.coords.longitude;
+	$('#headline').html('<a href="http://maps.google.com/maps?q=' + lat + ',+' + long + '" target="_blank">lat: ' + lat + ' long: ' + long + '</a>')
+	readStream('/media/search', 'lat=' + lat + '&lng=' + long);
+}
+function noLocation(){
+	alert('Standortbestimmung nicht erfolgreich.');
+}

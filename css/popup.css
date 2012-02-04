@@ -156,14 +156,11 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 
 #headercontrol a{
     display: inline-block;
-    width: 32%;
+    width: 24.3%;
     font-size: 0.8em;
     font-weight: bold;
+    text-align: center;
     color: #ffffff;
-}
-
-#logout{
-    text-align: right;
 }
 
 #stream{
