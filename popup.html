@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="/oauth2/oauth2.js"></script>
 		<script type="text/javascript" src="/js/popup.js"></script>
 		<link type="text/css" rel="stylesheet" href="/css/popup.css"></link>
@@ -8,8 +8,8 @@
 	<body>
 		<div id="headercontrol">
 			<a href="#" id="close" onclick="window.close();">Close</a>
-			<a href="#" id="stream" onclick="myStream();">My Stream</a>
-			<a href="#" id="geo" onclick="getLocation();">Geobased Search</a>
+			<a href="#" id="stream" onclick="myStream(); $('#headline').html('');">Your Stream</a>
+			<a href="#" id="geo" onclick="getLocation();">Next to you</a>
 			<a href="#" id="logout" title="share on google+" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
 			
 			<div id="search">

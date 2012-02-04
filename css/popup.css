@@ -83,37 +83,27 @@ td.from-time{
 	position: relative;
 }
 
-.likelink{
+.likelink,
+.write_comment,
+.sm{
 	text-decoration: none;
-	background-color: #ff6e16;
-	padding: 7px 10px;
+	background-color: #ccc;
+	padding: 2px 5px;
+	margin-right: 5px;
 	font-size: 1.5em;
-	color: black;
+	color: #000000 !important;
 	border-radius: 5px;
 }
 
-.sm{
-    display: inline-block;
-    height: 32px;
-    width: 32px;
-    position: absolute;
-    top: -5px;
-    text-decoration: none;
+a.like:before {
+    content:url('/img/heart.png')" ";
+    position: relative;
+    top: 2px;
 }
-
-.sm-gpl{
-    background: url('/img/sm.png') no-repeat 0 0 white;
-    left: 110px;
-}
-
-.sm-fb{
-    background: url('/img/sm.png') no-repeat 0 -32px white;
-    left: 147px;
-}
-
-.sm-tw{
-    background: url('/img/sm.png') no-repeat 0 -64px white;
-    left: 184px;
+a.unlike:before {
+    content:url('/img/heart_empty.png')" ";
+    position: relative;
+    top: 2px;
 }
 
 #welcome td{
@@ -138,9 +128,6 @@ td.from-time{
 	margin-right: 5px;
 }
 
-a.like:before { content:url('/img/heart.png')" "; }
-a.unlike:before { content:url('/img/heart_empty.png')" "; }
-
 #footer{
     margin-top: 10px;
     font-size: 0.8em;
@@ -156,11 +143,11 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 
 #headercontrol a{
     display: inline-block;
-    width: 24.3%;
     font-size: 0.8em;
     font-weight: bold;
     text-align: center;
     color: #ffffff;
+    margin: 0 5px;
 }
 
 #stream{
@@ -185,4 +172,8 @@ a.unlike:before { content:url('/img/heart_empty.png')" "; }
 #searchbox{
     width:230px;
     display: inline;
+}
+
+.writecomment{
+    display: none;
 }

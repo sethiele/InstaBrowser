@@ -117,11 +117,11 @@ var buildLikes = function(likes){
 	'</ul>';
 }
 
-var buildComments = function(caption, comments){
+var buildComments = function(caption, comments, photoid){
     var uComments = '';
     var ret = '';
 	
-    ret = '<ul class="comments">'
+    ret = '<ul class="comments" id="comments' + photoid + '">'
         if (caption)
 		{
             ret += '<li class="upload-comment">' +
@@ -136,6 +136,39 @@ var buildComments = function(caption, comments){
 	ret += '</ul>';
 	
 	return ret;
+}
+
+var sendComment = function(photoid, comment){
+    console.log('SEND', comment);
+    var username = '';
+    var uid = '';
+
+    $.ajax({
+         url: APIURL + "/users/self",
+         async: false,
+         data: "access_token=" + instaAuth.getAccessToken(),
+         success: function(msg){
+            username = msg.data.username;
+            uid = msg.data.id;
+         }
+     });
+    
+    $.ajax({
+         type: 'POST',
+         url: APIURL + "/media/" + photoid + "/comments",
+         data: "access_token=" + instaAuth.getAccessToken() + '&text=' + comment,
+         success: function(msg){
+             if(msg.meta.code == 200) {
+                 console.log('send OK');
+                 $('#commentfield-' + photoid).val('');
+                 $('#writecomment-' + photoid).hide();
+                 $('#comments' + photoid).append('<li class="user-comment">' + 
+                     displayUser(username, uid, 'commenter') + ' ' + computeContent(comment) + 
+                 '</li>')
+             }
+             $('#writecomment-' +photoid + ' .submitcomment').val('Submit').removeAttr("disabled");
+         }
+     });
 }
 
 var readStream = function(getData, sendData){
@@ -193,14 +226,20 @@ var readStream = function(getData, sendData){
     					buildLikes(value.likes) +
     					
     					//Build Comments
-    					buildComments(value.caption, value.comments) + 
+    					buildComments(value.caption, value.comments, value.id) + 
     					
     					'<div class="favcoment">' +
     						'<a href="" class="' + likeclass + ' likelink" data-image="' + value.id + '" data-likestat="' + likeclass + '">' + liketext + '</a>' +
-    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">&nbsp;</a> ' +
-    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">&nbsp;</a> ' +
-    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=instaChro&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">&nbsp;</a> ' +
+    						'<a href="#" class="write_comment" data-photoid="' + value.id + '">Comment</a>' +
+    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">G+</a>' +
+    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">FB</a>' +
+    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=instaChro&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">TW</a>' +
     					'</div>' + 
+    					'<div class="writecomment" id="writecomment-' + value.id + '">' +
+    					    'Write a comment<br />' + 
+    					    '<textarea style="width:100%" id="commentfield-' + value.id + '"></textarea>' +
+    					    '<input type="button" class="submitcomment" value="Submit" data-photoid="' + value.id + '" style="width:100%" />' +
+    					'</div>' +
     				'</div>');
     				anz++;
     			}catch(e){
@@ -252,6 +291,16 @@ $(function(){
 	    readStream('/tags/' + $(this).data('hash') + '/media/recent');
 	    return false;
 	});
+	
+	$('.write_comment').live('click', function(){
+	    $('#writecomment-' + $(this).data('photoid')).show();
+	    return false;
+	});
+	
+	$('.submitcomment').live('click', function(){
+	    $('#writecomment-' + $(this).data('photoid') + ' .submitcomment').val('Please Wait').attr("disabled", "true");
+        sendComment($(this).data('photoid'), $(this).siblings('textarea').val());
+    });
 	
 	// Search
 	$('#searchform').submit(function(event){
