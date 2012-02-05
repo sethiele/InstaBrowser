@@ -202,3 +202,19 @@ a.unlike:before {
 .writecomment{
     display: none;
 }
+
+.rate{
+    margin:5px 0;
+    background: #ccc;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+.rate:hover{
+    cursor: pointer;
+}
+
+.ui-dialog-titlebar-close{
+    display: none;
+}

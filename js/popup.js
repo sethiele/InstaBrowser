@@ -1,4 +1,5 @@
 var APIURL = 'https://api.instagram.com/v1';
+var now = new Date();
 
 var instaAuth = new OAuth2('instagram', {
   client_id: 'e416342f656d42ceb5e0392d7c7d9a8b',
@@ -233,6 +234,20 @@ var sendFollowUnfollow = function(uid, action){
      });
 }
 
+var rateme = function(){
+    $('body').append('<div id="rate-it" title="Rate me">' +
+		'<p>' +
+			'You\'re using this extention for a while. And I hope your experience are great.' +
+		'</p>' +
+		'<p>' +
+			'Please help to promote this extentions. Share it with your friends or rate the extention in the Google Chrome Store. It will be a small step for you, one giant step for this extention.' +
+		'</p>' +
+		'<div class="rate" id="ratenow">Rate now</div>' +
+		'<div class="rate" id="asklater">Ask me laiter</div>' +
+		'<div class="rate" id="dontask">Don\'t ask me again</div>' +
+	'</div>');
+}
+
 var readStream = function(getData, sendData){
     showLoader();
     var requestURL = APIURL + "/users/self/feed";
@@ -324,10 +339,34 @@ instaAuth.authorize(function() {
 	
 	
 });
+
+
 showUser();
 userFeed();
 
 $(function(){
+    
+    //Last vote check
+    if(!localStorage.lastVoteCheck){
+        localStorage.lastVoteCheck = now.getTime();
+        console.log('first');
+    } else if(localStorage.lastVoteCheck != -1){
+        if(localStorage.lastVoteCheck > (now.getTime() - 1000 * 60 * 60 * 1)){  //* 24 * 14
+            
+        } else {
+            rateme();
+            
+            $( "#rate-it" ).dialog({
+                resizable: false,
+                height:250,
+                modal: true,
+                closeOnEscape: false,
+                draggable: false
+            });
+            console.log('show');
+        }
+    }
+    
     
     // Fix position
     $(window).scroll(function() {
@@ -335,6 +374,27 @@ $(function(){
     });
     
 	// Binding
+	$('.rate').live('click', function(){
+        console.log($(this).attr('id')); 
+	   
+        switch($(this).attr('id')){
+            case 'ratenow':
+	            console.log('rate');
+	            localStorage.lastVoteCheck = -1;
+	            window.open('http://goo.gl/iiZHW', '_blank');
+	            break;
+	        case 'asklater':
+	            console.log('asklater');
+	            localStorage.lastVoteCheck = now.getTime();
+	            break;
+	        case 'dontask':
+	            console.log('dont ask');
+	            localStorage.lastVoteCheck = -1;
+	            break;
+	   }
+	   $( '#rate-it').dialog( "close" );
+	});
+	
 	$('#images .like, #images .unlike').live('click', function(event){
 		event.preventDefault();
 		var imgID = $(this).data('image');
