@@ -62,9 +62,51 @@ var showLoader = function(){
 	$('#images').html('<img src="/img/loader.gif" id="loader" />');
 }
 
+var followstatus = function(uid){
+    $.ajax({
+		url: APIURL + "/users/" + uid + "/relationship",
+		data: "access_token=" + instaAuth.getAccessToken(),
+		success: function(msg){
+		 	console.log(msg);
+		 	var followin = '';
+		 	var followout = '';
+		 	if(msg.data.incoming_status == 'followed_by'){
+		 	    followin = 'follows you';
+		 	} else if(msg.data.incoming_status == 'requested_by'){
+		 	    followin = 'pending friend request';
+		 	} else if(msg.data.incoming_status == 'blocked_by_you'){
+		 	    followin = 'blocking';
+		 	} else if(msg.data.incoming_status == 'none') {
+                followin = 'dosn\'t follow you';
+		 	} else {
+		 	    followin = msg.data.incoming_status;
+		 	}
+		 	
+		 	if(msg.data.outgoing_status == 'follows'){
+		 	    followout = 'following';
+		 	} else if(msg.data.outgoing_status == 'requested'){
+		 	    followout = 'you are waiting for permissions';
+		 	} else if(msg.data.outgoing_status == 'none'){
+		 	    followout = '<a href="#" class="addfriend" data-uid="' + uid + '">follow</a>';
+		 	} else {
+		 	    followout = msg.data.outgoing_status;
+		 	}
+		 	
+		 	$('#incoming_follow').html(followin);
+		 	$('#outcoming_follow').html(followout);
+		}
+	});
+}
+
 var showUser = function(uid){
     var requestURL = APIURL + "/users/self";
-    if(uid) requestURL = APIURL + "/users/"+uid;
+    if(uid) {
+        requestURL = APIURL + "/users/"+uid;
+        $('#followstatus').show();
+        followstatus(uid);
+    } else {
+        $('#followstatus').hide();
+    }
 	$.ajax({
 		url: requestURL,
 		data: "access_token=" + instaAuth.getAccessToken(),
@@ -171,6 +213,26 @@ var sendComment = function(photoid, comment){
      });
 }
 
+var fadeOut = function(){
+    setTimeout(function(){$('#infofield').slideUp( 'slow' )}, 5000);
+}
+
+var sendFollowUnfollow = function(uid, action){
+    console.log(uid, action);
+    $.ajax({
+         type: 'POST',
+         url: APIURL + "/users/" + uid + "/relationship",
+         data: "access_token=" + instaAuth.getAccessToken() + '&action=' + action,
+         success: function(msg){
+             if(msg.meta.code == 200) {
+                 $('#infofield').html('Following request was send.');
+                 $('#outcoming_follow').html('You are a follower');
+                 $('#infofield').slideDown( 'slow', fadeOut );
+             }
+         }
+     });
+}
+
 var readStream = function(getData, sendData){
     showLoader();
     var requestURL = APIURL + "/users/self/feed";
@@ -233,7 +295,7 @@ var readStream = function(getData, sendData){
     						'<a href="#" class="write_comment" data-photoid="' + value.id + '">Comment</a>' +
     						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">G+</a>' +
     						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">FB</a>' +
-    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=instaChro&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">TW</a>' +
+    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=InstaBrowser&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">TW</a>' +
     					'</div>' + 
     					'<div class="writecomment" id="writecomment-' + value.id + '">' +
     					    'Write a comment<br />' + 
@@ -266,6 +328,12 @@ showUser();
 userFeed();
 
 $(function(){
+    
+    // Fix position
+    $(window).scroll(function() {
+        $('#headercontrol').css('top', $(this).scrollTop() + "px");
+    });
+    
 	// Binding
 	$('#images .like, #images .unlike').live('click', function(event){
 		event.preventDefault();
@@ -300,6 +368,10 @@ $(function(){
 	$('.submitcomment').live('click', function(){
 	    $('#writecomment-' + $(this).data('photoid') + ' .submitcomment').val('Please Wait').attr("disabled", "true");
         sendComment($(this).data('photoid'), $(this).siblings('textarea').val());
+    });
+    
+    $('.addfriend').live('click', function(){
+        sendFollowUnfollow( $(this).data('uid'), 'follow');
     });
 	
 	// Search

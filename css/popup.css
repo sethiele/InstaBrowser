@@ -83,16 +83,27 @@ td.from-time{
 	position: relative;
 }
 
+#followstatus{
+    display: none;
+    margin-top:5px;
+}
+
 .likelink,
 .write_comment,
-.sm{
+.sm,
+#incoming_follow,
+#outcoming_follow{
 	text-decoration: none;
 	background-color: #ccc;
 	padding: 2px 5px;
-	margin-right: 5px;
+	margin-right: 4px;
 	font-size: 1.5em;
 	color: #000000 !important;
 	border-radius: 5px;
+}
+
+#outcoming_follow a{
+    font-size: 1em;
 }
 
 a.like:before {
@@ -104,6 +115,10 @@ a.unlike:before {
     content:url('/img/heart_empty.png')" ";
     position: relative;
     top: 2px;
+}
+
+#welcome{
+    padding-top: 65px;
 }
 
 #welcome td{
@@ -134,11 +149,14 @@ a.unlike:before {
 }
 
 #headercontrol{
+    position: absolute;
     background-color: #878787;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 0 10px 5px;
     margin-bottom: 10px;
+    width: 296px;
+    z-index: 1;
 }
 
 #headercontrol a{
@@ -148,6 +166,13 @@ a.unlike:before {
     text-align: center;
     color: #ffffff;
     margin: 0 5px;
+}
+
+#infofield{
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 #stream{

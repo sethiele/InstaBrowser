@@ -10,12 +10,16 @@
 			<a href="#" id="close" onclick="window.close();">Close</a>
 			<a href="#" id="stream" onclick="myStream(); $('#headline').html('');">Your Stream</a>
 			<a href="#" id="geo" onclick="getLocation();">Next to you</a>
-			<a href="#" id="logout" title="share on google+" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
+			<a href="#" id="logout" title="logout" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
 			
 			<div id="search">
 				<form id="searchform">
 					<input type="text" name="search" id="searchbox"> <input type="submit" name="searchbtn" id="searchbtn" value="Search" />
 				</form>
+			</div>
+			
+			<div id="infofield" style="display:none">
+				HIER info
 			</div>
 		</div>
 		
@@ -29,6 +33,10 @@
 					<td><span id="followscount"></span>Follows</td>
 				</tr>
 			</table>
+			<div id="followstatus">
+				<span id="incoming_follow"></span>
+				<span id="outcoming_follow"></span>
+			</div>
 		</div>
 		
 		<div id="headline"></div>
@@ -42,7 +50,8 @@
 				This product uses the Instagram API but is not endorsed or certified by Instagram.
 			</p>
 			<p>
-				Report a Bug on <a href="http://twitter.com/insaChro" target="_blank">Twitter</a> 
+				Report a Bug on <a href="http://twitter.com/InstaBrowser" target="_blank">Twitter</a> <br />
+				Follow Sebastian on <a href="#" data-uid="483220" class="addfriend">Instagram</a>, <a href="https://plus.google.com/100912127446274756364" target="_blank">Google+</a> or <a href="http://twitter.com/sebat" target="_blank">Twitter</a>
 			</p>
 		</div>
 	</body>
