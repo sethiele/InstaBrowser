@@ -122,7 +122,7 @@ var showUser = function(uid){
 }
 
 var myStream = function(){
-    userFeed();
+    readStream();
     showUser();
     $('#searchbox').val('');
 }
@@ -248,14 +248,27 @@ var rateme = function(){
 	'</div>');
 }
 
+var popular = function(){
+    $('#headline').html('Popular stuff');
+    readStream('/media/popular');
+    
+}
+
 var readStream = function(getData, sendData){
     showLoader();
     var requestURL = APIURL + "/users/self/feed";
+    
+    
+    
     if(getData){
         requestURL = APIURL + getData;
+        localStorage.lastGetData    = getData;
+    } else {
     }
+    
     if(sendData){
         sendData = '&' + sendData;
+        localStorage.lastSendData   = sendData;
     } else {
         sendData = '';
     }
@@ -329,8 +342,9 @@ var readStream = function(getData, sendData){
 }
 
 
-var userFeed = function(){
-	readStream();
+var startFeed = function(){
+    readStream();
+	
 }
 
 //instaAuth.clearAccessToken;
@@ -342,10 +356,14 @@ instaAuth.authorize(function() {
 
 
 showUser();
-userFeed();
+startFeed();
 
 $(function(){
-    $(document).ready(function () {
+    if(localStorage.lastGetData || localStorage.lastSendData){
+        //readStream(localStorage.lastGetData, localStorage.lastSendData);
+        $('#lastsave').html('<a href="#" title="Load last open Page" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\')">load</a>');
+    }
+
     //Last vote check
     if(!localStorage.lastVoteCheck){
         localStorage.lastVoteCheck = now.getTime();
@@ -372,7 +390,6 @@ $(function(){
           });
         }
     }
-});
     
     
     // Fix position
@@ -466,5 +483,5 @@ function gotLocation(position){
 	readStream('/media/search', 'lat=' + lat + '&lng=' + long);
 }
 function noLocation(){
-	alert('Standortbestimmung nicht erfolgreich.');
+	alert('No location information found.');
 }

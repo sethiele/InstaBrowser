@@ -11,7 +11,9 @@
 		<div id="headercontrol">
 			<a href="#" id="close" onclick="window.close();">Close</a>
 			<a href="#" id="stream" onclick="myStream(); $('#headline').html('');">Your Stream</a>
-			<a href="#" id="geo" onclick="getLocation();">Next to you</a>
+			<a href="#" id="geo" onclick="getLocation();">Near to you</a>
+			<a href="#" id="geo" onclick="popular();">popular</a>
+			<span id="lastsave"></span>
 			<a href="#" id="logout" title="logout" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
 			
 			<div id="search">
