@@ -345,13 +345,13 @@ showUser();
 userFeed();
 
 $(function(){
-    
+    $(document).ready(function () {
     //Last vote check
     if(!localStorage.lastVoteCheck){
         localStorage.lastVoteCheck = now.getTime();
         console.log('first');
     } else if(localStorage.lastVoteCheck != -1){
-        if(localStorage.lastVoteCheck > (now.getTime() - 1000 * 60 * 60 * 1)){  //* 24 * 14
+        if(localStorage.lastVoteCheck > (now.getTime() - 1000 * 60 * 60 * 24 * 14)){
             
         } else {
             rateme();
@@ -364,8 +364,15 @@ $(function(){
                 draggable: false
             });
             console.log('show');
+            
+            $(window).resize(function() {
+               $("#rate-it").dialog("option", "position", "center");
+           }).scroll(function(){
+              $("#rate-it").dialog("option", "position", "center");
+          });
         }
     }
+});
     
     
     // Fix position
@@ -381,7 +388,7 @@ $(function(){
             case 'ratenow':
 	            console.log('rate');
 	            localStorage.lastVoteCheck = -1;
-	            window.open('http://goo.gl/iiZHW', '_blank');
+	            window.open('http://goo.gl/rFcxj', '_blank');
 	            break;
 	        case 'asklater':
 	            console.log('asklater');
