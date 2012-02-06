@@ -237,10 +237,10 @@ var sendFollowUnfollow = function(uid, action){
 var rateme = function(){
     $('body').append('<div id="rate-it" title="Rate me">' +
 		'<p>' +
-			'You\'re using this extention for a while. And I hope your experience are great.' +
+			'You\'re been using this extention for a while now. I hope your experience is great.' +
 		'</p>' +
 		'<p>' +
-			'Please help to promote this extentions. Share it with your friends or rate the extention in the Google Chrome Store. It will be a small step for you, one giant step for this extention.' +
+			'Please help to promote this extention. Share it with your friends or rate it in the Google Chrome Store. It will be a small step for you, one giant step for this extention.' +
 		'</p>' +
 		'<div class="rate" id="ratenow">Rate now</div>' +
 		'<div class="rate" id="asklater">Ask me laiter</div>' +
