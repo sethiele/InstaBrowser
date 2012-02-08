@@ -6,11 +6,26 @@
 		<script type="text/javascript" src="/oauth2/oauth2.js"></script>
 		<script type="text/javascript" src="/js/popup.js"></script>
 		<link type="text/css" rel="stylesheet" href="/css/popup.css"></link>
+		
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-29000954-1']);
+		  _gaq.push(['_trackPageview']);
+		  _gaq.push(['_gat._anonymizeIp']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = 'https://ssl.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
 	</head>
 	<body>
 		<div id="headercontrol">
 			<a href="#" id="close" onclick="window.close();">Close</a>
-			<a href="#" id="stream" onclick="myStream(); $('#headline').html('');">Your Stream</a>
+			<a href="#" id="stream" onclick="myStream(); $('#headline').html(''); trackClick('User', 'show', 'self');">Your Stream</a>
 			<a href="#" id="geo" onclick="getLocation();">Near to you</a>
 			<a href="#" id="geo" onclick="popular();">popular</a>
 			<span id="lastsave"></span>

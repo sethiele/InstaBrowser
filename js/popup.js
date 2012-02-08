@@ -7,6 +7,11 @@ var instaAuth = new OAuth2('instagram', {
   api_scope: 'basic+comments+relationships+likes'
 });
 
+
+var trackClick = function(category, action, what) {
+    _gaq.push(['_trackEvent', category, action, what]);
+};
+
 var getTimeFormat = function(timeval){
 	b = timeval.getHours(); 
 	c = timeval.getMinutes();
@@ -249,6 +254,7 @@ var rateme = function(){
 }
 
 var popular = function(){
+    trackClick('Popular', 'show');
     $('#headline').html('Popular stuff');
     readStream('/media/popular');
     
@@ -361,7 +367,7 @@ startFeed();
 $(function(){
     if(localStorage.lastGetData || localStorage.lastSendData){
         //readStream(localStorage.lastGetData, localStorage.lastSendData);
-        $('#lastsave').html('<a href="#" title="Load last open Page" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\')">load</a>');
+        $('#lastsave').html('<a href="#" title="Load last open Page" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\'); trackClick(\'Load last position\', \'show\');">load</a>');
     }
 
     //Last vote check
@@ -424,21 +430,25 @@ $(function(){
 		var imgID = $(this).data('image');
 		console.log($(this).data('likestat'));
 		if($(this).data('likestat') == 'like'){
+		    trackClick('Photo', 'unlike', imgID);
 			remFav(imgID, this);
 			console.log('unlike', imgID);
 		}else{
+		    trackClick('Photo', 'like', imgID);
 			sendFav(imgID, this);
 			console.log('like', imgID);
 		}
 	})
 	
 	$('.username').live('click', function(){
+	    trackClick('User', 'show', $(this).data('uid'));
 	    $('#headline').html('');
 	    showUser( $(this).data('uid') );
         readStream('/users/' + $(this).data('uid') + '/media/recent');
 	});
 	
 	$('.hash').live('click', function(){
+	    trackClick('HashTag', 'show', $(this).data('hash'));
 	    $('#headline').html('#' + $(this).data('hash'));
 	    readStream('/tags/' + $(this).data('hash') + '/media/recent');
 	    return false;
@@ -450,11 +460,13 @@ $(function(){
 	});
 	
 	$('.submitcomment').live('click', function(){
+	    trackClick('Comment', 'submit', $(this).data('photoid'));
 	    $('#writecomment-' + $(this).data('photoid') + ' .submitcomment').val('Please Wait').attr("disabled", "true");
         sendComment($(this).data('photoid'), $(this).siblings('textarea').val());
     });
     
     $('.addfriend').live('click', function(){
+        trackClick('User','follow', $(this).data('uid'));
         sendFollowUnfollow( $(this).data('uid'), 'follow');
     });
 	
@@ -463,6 +475,7 @@ $(function(){
 	    if( $('#searchbox').val().length > 0 ){
 	        var alphaExp = /^[a-zA-Z0-9]+$/;
             if($('#searchbox').val().match(alphaExp)){
+                 trackClick('Search', 'search', $('#searchbox').val());
                  readStream('/tags/' + $('#searchbox').val() + '/media/recent');
             }else{
                alert('Only numbers and letters are allowed.');
@@ -474,6 +487,7 @@ $(function(){
 
 
 function getLocation(){
+    trackClick('Geo', 'show');
 	navigator.geolocation.getCurrentPosition(gotLocation, noLocation);
 }
 function gotLocation(position){
