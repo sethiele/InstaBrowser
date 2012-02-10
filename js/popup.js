@@ -46,7 +46,7 @@ var sendFav = function(id, who){
 		data: "access_token=" + instaAuth.getAccessToken(),
 		success: function(msg){
 			if(msg.meta.code == 200) {
-				$(who).removeClass('unlike').addClass('like').html('Unlike it').data('likestat', 'like');
+				$(who).removeClass('unlike').addClass('like').html(chrome.i18n.getMessage("content_unlike")).data('likestat', 'like');
 			}
 		}
 	});
@@ -58,7 +58,7 @@ var remFav = function(id, who){
 		url: APIURL + "/media/" + id + "/likes?access_token=" + instaAuth.getAccessToken(),
 		success: function(msg){
 			if(msg.meta.code == 200) {
-				$(who).removeClass('like').addClass('unlike').html('Like it').data('likestat', 'unlike');
+				$(who).removeClass('like').addClass('unlike').html(chrome.i18n.getMessage("content_like")).data('likestat', 'unlike');
 			}
 		}
 	});
@@ -240,16 +240,16 @@ var sendFollowUnfollow = function(uid, action){
 }
 
 var rateme = function(){
-    $('body').append('<div id="rate-it" title="Rate me">' +
+    $('body').append('<div id="rate-it" title="' + chrome.i18n.getMessage("rate_me") + '">' +
 		'<p>' +
-			'You\'re been using this extention for a while now. I hope your experience is great.' +
+			chrome.i18n.getMessage("rate_first") +
 		'</p>' +
 		'<p>' +
-			'Please help to promote this extention. Share it with your friends or rate it in the Google Chrome Store. It will be a small step for you, one giant step for this extention.' +
+		    chrome.i18n.getMessage("rate_secound") +
 		'</p>' +
-		'<div class="rate" id="ratenow">Rate now</div>' +
-		'<div class="rate" id="asklater">Ask me laiter</div>' +
-		'<div class="rate" id="dontask">Don\'t ask me again</div>' +
+		'<div class="rate" id="ratenow">' + chrome.i18n.getMessage("rate_now") + '</div>' +
+		'<div class="rate" id="asklater">' + chrome.i18n.getMessage("rate_later") + '</div>' +
+		'<div class="rate" id="dontask">' + chrome.i18n.getMessage("rate_never") + '</div>' +
 	'</div>');
 }
 
@@ -299,10 +299,10 @@ var readStream = function(getData, sendData){
 
     				if(value.user_has_liked == true){
     					likeclass = 'like';
-    					liketext = 'Unlike it';
+    					liketext = chrome.i18n.getMessage("content_unlike");
     				} else {
     					likeclass = 'unlike';
-    					liketext = 'Like it';
+    					liketext = chrome.i18n.getMessage("content_like");
     				}
 
     				if(anz % 2){
@@ -326,10 +326,11 @@ var readStream = function(getData, sendData){
     					
     					'<div class="favcoment">' +
     						'<a href="" class="' + likeclass + ' likelink" data-image="' + value.id + '" data-likestat="' + likeclass + '">' + liketext + '</a>' +
-    						'<a href="#" class="write_comment" data-photoid="' + value.id + '">Comment</a>' +
-    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">G+</a>' +
-    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">FB</a>' +
-    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=InstaBrowser&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">TW</a>' +
+    						'<a href="#" class="write_comment" data-photoid="' + value.id + '">' + chrome.i18n.getMessage("content_comment") + '</a>' +
+    						'<br />' + 
+    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">Google+</a>' +
+    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">Facebook</a>' +
+    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=InstaBrowser&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">Twitter</a>' +
     					'</div>' + 
     					'<div class="writecomment" id="writecomment-' + value.id + '">' +
     					    'Write a comment<br />' + 
@@ -367,7 +368,7 @@ startFeed();
 $(function(){
     if(localStorage.lastGetData || localStorage.lastSendData){
         //readStream(localStorage.lastGetData, localStorage.lastSendData);
-        $('#lastsave').html('<a href="#" title="Load last open Page" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\'); trackClick(\'Load last position\', \'show\');">load</a>');
+        $('#lastsave').html('<a href="#" title="' + chrome.i18n.getMessage("head_load_title") + '" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\'); trackClick(\'Load last position\', \'show\');">' + chrome.i18n.getMessage("head_load") + '</a>');
     }
 
     //Last vote check

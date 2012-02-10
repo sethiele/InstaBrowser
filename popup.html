@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="/oauth2/oauth2.js"></script>
 		<script type="text/javascript" src="/js/popup.js"></script>
+		<script type="text/javascript" src="/js/translate.js"></script>
 		<link type="text/css" rel="stylesheet" href="/css/popup.css"></link>
 		
 		<script type="text/javascript">
@@ -27,7 +28,7 @@
 			<a href="#" id="close" onclick="window.close();">Close</a>
 			<a href="#" id="stream" onclick="myStream(); $('#headline').html(''); trackClick('User', 'show', 'self');">Your Stream</a>
 			<a href="#" id="geo" onclick="getLocation();">Near to you</a>
-			<a href="#" id="geo" onclick="popular();">popular</a>
+			<a href="#" id="popuolar" onclick="popular();">popular</a>
 			<span id="lastsave"></span>
 			<a href="#" id="logout" title="logout" onclick="instaAuth.clearAccessToken(); window.close();">Logout</a>
 			
@@ -47,9 +48,9 @@
 			<span id="mename"></span>
 			<table>
 				<tr>
-					<td><span id="photocount"></span>Photos</td>
-					<td><span id="followedbycount"></span>Followed by</td>
-					<td><span id="followscount"></span>Follows</td>
+					<td><span class="value" id="photocount"></span><span id="photocount_content">Photos</span></td>
+					<td><span class="value" id="followedbycount"></span><span id="followedbycount_content">Followed by</span></td>
+					<td><span class="value" id="followscount"></span><span id="followscount_content">Follows</span></td>
 				</tr>
 			</table>
 			<div id="followstatus">
@@ -65,12 +66,12 @@
 		</div>
 		
 		<div id="footer">
-			<p>
+			<p id="noinstagram">
 				This product uses the Instagram API but is not endorsed or certified by Instagram.
 			</p>
 			<p>
-				Report a Bug on <a href="http://twitter.com/InstaBrowser" target="_blank">Twitter</a> <br />
-				Follow Sebastian on <a href="#" data-uid="483220" class="addfriend">Instagram</a>, <a href="https://plus.google.com/100912127446274756364" target="_blank">Google+</a> or <a href="http://twitter.com/sebat" target="_blank">Twitter</a>
+				<span id="bugreporttwitter">Report a Bug on <a href="http://twitter.com/InstaBrowser" target="_blank">Twitter</a></span> <br />
+				<span id="followsebastian">Follow Sebastian on <a href="#" data-uid="483220" class="addfriend">Instagram</a>, <a href="https://plus.google.com/100912127446274756364" target="_blank">Google+</a> or <a href="http://twitter.com/sebat" target="_blank">Twitter</a></span>
 			</p>
 			<p style="text-align: center; font-weight: bold; background: -webkit-repeating-linear-gradient(black, black, red, yellow, yellow)">
 				<span style="background: #ffffff; padding: 5px; display: inline-block">Made in Germany</span>

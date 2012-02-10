@@ -1,0 +1,115 @@
+{
+	"extDescription":{
+		"message": 		"Instagram™ Betrachter für Google Chrome™",
+		"description":	"Description"
+	},
+	"head_close":{
+		"message": 		"Schließen",
+		"description":	"Header"
+	},
+	"head_stream":{
+		"message": 		"Dein Stream",
+		"description":	"Header"
+	},
+	"head_geo":{
+		"message": 		"In der Nähe",
+		"description":	"Header"
+	},
+	"head_popuolar":{
+		"message": 		"Beliebt",
+		"description":	"Header"
+	},
+	"head_logout":{
+		"message": 		"Logout",
+		"description":	"Header"
+	},
+	"head_load_title":{
+		"message": 		"Letzte Position laden",
+		"description":	"Header"
+	},
+	"head_load":{
+		"message": 		"Laden",
+		"description":	"Header"
+	},
+	"head_search":{
+		"message": 		"Suchen",
+		"description":	"Header"
+	},
+	"user_photocount":{
+		"message": 		"Fotos",
+		"description":	"User Counts"
+	},
+	"user_followedbycount":{
+		"message": 		"Anhänger",
+		"description":	"User Counts"
+	},
+	"user_followscount":{
+		"message": 		"Folgt",
+		"description":	"User Counts"
+	},
+	"footer_noinstagram":{
+		"message": 		"Dieses Produkt benutzt die Instagram API steht aber sonst in keinem Zusammenhang mit Instagram.",
+		"description":	"Footer"
+	},
+	"footer_bugreporttwitter":{
+		"message": 		"Melde Fehler auf $TWITTER$",
+		"description":	"Footer",
+		"placeholders": {
+			"TWITTER": {
+				"content": "$1",
+				"example": "Twitter URL"
+			}
+		}
+	},
+	"footer_followsebastian":{
+		"message": 		"Folge Sebastian auf $INSTAGRAM$, $GOOGLEPL$ oder $TWITTER$",
+		"description":	"Footer",
+		"placeholders": {
+			"INSTAGRAM": {
+				"content": "$1"
+			},
+			"GOOGLEPL": {
+				"content": "$2"
+			},
+			"TWITTER": {
+				"content": "$3"
+			}
+		}
+	},
+	"content_like":{
+		"message": 		"Gefällt",
+		"description":	"Content"
+	},
+	"content_unlike":{
+		"message": 		"Gefällt nicht",
+		"description":	"Content"
+	},
+	"content_comment":{
+		"message": 		"Kommentieren",
+		"description":	"Content"
+	},
+	"rate_first":{
+		"message":		"Du benutzt diese Extention schon eine ganze weile. Ich hoffe deine Erfahrungen mit ihr sind gut.",
+		"description":	"rate me"
+	},
+	"rate_secound":{
+		"message":		"Bitte hilf dabei sie zu verbreiten. Teile sie mit deinen Freunden oder bewerte sie im Google Chrome Store. Es ist ein kleiner Schritt für dich, aber ein riesen Schritt für die Extention",
+		"description":	"rate me"
+	},
+	"rate_now":{
+		"message":		"Bewerte jetzt",
+		"description":	"rate me"
+	},
+	"rate_later":{
+		"message":		"Frag mich später",
+		"description":	"rate me"
+	},
+	"rate_never":{
+		"message":		"Frag mich nicht wieder",
+		"description":	"rate me"
+	},
+	"rate_me":{
+		"message":		"Bewerte mich",
+		"description":	"rate me"
+	}
+}

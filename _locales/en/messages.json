@@ -1,0 +1,115 @@
+{
+	"extDescription":{
+		"message": 		"Instagram™ viewer for Google Chrome™",
+		"description":	"Description"
+	},
+	"head_close":{
+		"message": 		"Close",
+		"description":	"Header"
+	},
+	"head_stream":{
+		"message": 		"Your Stream",
+		"description":	"Header"
+	},
+	"head_geo":{
+		"message": 		"Close to You",
+		"description":	"Header"
+	},
+	"head_popuolar":{
+		"message": 		"Popular",
+		"description":	"Header"
+	},
+	"head_logout":{
+		"message": 		"Logout",
+		"description":	"Header"
+	},
+	"head_load_title":{
+		"message": 		"Load last open Page",
+		"description":	"Header"
+	},
+	"head_load":{
+		"message": 		"Load",
+		"description":	"Header"
+	},
+	"head_search":{
+		"message": 		"Search",
+		"description":	"Header"
+	},
+	"user_photocount":{
+		"message": 		"Photos",
+		"description":	"User Counts"
+	},
+	"user_followedbycount":{
+		"message": 		"Followed by",
+		"description":	"User Counts"
+	},
+	"user_followscount":{
+		"message": 		"Follows",
+		"description":	"User Counts"
+	},
+	"footer_noinstagram":{
+		"message": 		"This product uses the Instagram API but is not endorsed or certified by Instagram.",
+		"description":	"Footer"
+	},
+	"footer_bugreporttwitter":{
+		"message": 		"Report a Bug on $TWITTER$",
+		"description":	"Footer",
+		"placeholders": {
+			"TWITTER": {
+				"content": "$1",
+				"example": "Twitter URL"
+			}
+		}
+	},
+	"footer_followsebastian":{
+		"message": 		"Follow Sebastian on $INSTAGRAM$, $GOOGLE$ or $TWITTER$",
+		"description":	"Footer",
+		"placeholders": {
+			"INSTAGRAM": {
+				"content": "$1"
+			},
+			"GOOGLE": {
+				"content": "$2"
+			},
+			"TWITTER": {
+				"content": "$3"
+			}
+		}
+	},
+	"content_like":{
+		"message": 		"Like it",
+		"description":	"Content"
+	},
+	"content_unlike":{
+		"message": 		"Unlike it",
+		"description":	"Content"
+	},
+	"content_comment":{
+		"message": 		"Comment",
+		"description":	"Content"
+	},
+	"rate_first":{
+		"message":		"You're been using this extention for a while now. I hope your experience is great.",
+		"description":	"rate me"
+	},
+	"rate_secound":{
+		"message":		"Please help to promote this extention. Share it with your friends or rate it in the Google Chrome Store. It will be a small step for you, one giant step for this extention.",
+		"description":	"rate me"
+	},
+	"rate_now":{
+		"message":		"Rate now",
+		"description":	"rate me"
+	},
+	"rate_later":{
+		"message":		"Ask me laiter",
+		"description":	"rate me"
+	},
+	"rate_never":{
+		"message":		"Don't ask me again",
+		"description":	"rate me"
+	},
+	"rate_me":{
+		"message":		"Rate me",
+		"description":	"rate me"
+	}
+}
