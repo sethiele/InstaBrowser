@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Optionen</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link type="text/css" rel="stylesheet" href="/css/options.css"></link>
+		<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="/oauth2/oauth2.js"></script>
+		<script type="text/javascript" src="/js/translate.js"></script>
+		<script type="text/javascript" charset="utf-8">
+		
+			var instaAuth = new OAuth2('instagram', {
+			  client_id: 'e416342f656d42ceb5e0392d7c7d9a8b',
+			  client_secret: '77b89ee61294498396a11be3e1646d89',
+			  api_scope: 'basic+comments+relationships+likes'
+			});
+			
+			var showSaved = function(triger){
+				$(triger).next('.action-saved').fadeIn('slow', function(){
+					setTimeout(function(){
+						$(triger).next('.action-saved').fadeOut('slow');
+					}, 5000);
+				});
+			}
+			$(function(){
+				$('#remove-access').click(function(){
+					instaAuth.clearAccessToken();
+					showSaved(this);
+					
+				});
+			});
+		</script>
+		
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		    (function() {
+		        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+		        s.type = 'text/javascript';
+		        s.async = true;
+		        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+		        t.parentNode.insertBefore(s, t);
+		    })();
+		/* ]]> */</script>
+	</head>
+	<body>
+		<table cellspacing="0" cellpadding="0">
+			<tr>
+				<td colspan="2" style="text-align: center">
+					<img src="img/icon_96.png" width="96" height="96" alt="Icon 96"><br />
+					<b id="insta-options" style="font-size:1.5em">InstaBrowser Options</b>
+				</td>
+			</tr>
+			<tr>
+				<td><label id="remove-connection"></label></td>
+				<td>
+					<p id="remove-connection-desc">
+						
+					</p>
+					<p>
+						<input type="button" id="remove-access" value="" /> <span class="action-saved"></span> <span class="action-saved"></span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td><label id="translationinfo"></label></td>
+				<td>
+					<p id="translation-desc">
+						
+					</p>
+					<span class="flag flag-gb"></span> <a href="http://diana.thiele.me" target="_blank">Diana Thiele</a>, 
+					<span class="flag flag-de"></span> Sebastian Thiele
+				</td>
+			</tr>
+			<tr>
+				<td><label id="imageinfo"></label></td>
+				<td>
+					<p id="imageinfo-desc">
+						
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p>
+						<b>Be social, share this Extension</b>
+					</p>
+					<p>
+						<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fighkeghglkbljjmoineeppdkailinjii&amp;send=false&amp;layout=button_count&amp;width=30&amp;show_faces=false&amp;action=recommend&amp;colorscheme=light&amp;font=tahoma&amp;height=21&amp;appId=322146071140561" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+						
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://chrome.google.com/webstore/detail/ighkeghglkbljjmoineeppdkailinjii" data-text="InstaBrowser Instagram(tm) viewer for Chrome" data-via="InstaBrowser" data-related="Sebat">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						
+						<!-- Place this tag where you want the +1 button to render -->
+						<g:plusone size="medium" href="https://chrome.google.com/webstore/detail/ighkeghglkbljjmoineeppdkailinjii"></g:plusone>
+
+						<!-- Place this render call where appropriate -->
+						<script type="text/javascript">
+						  (function() {
+						    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						    po.src = 'https://apis.google.com/js/plusone.js';
+						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						  })();
+						</script>
+						
+						
+						<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="https://chrome.google.com/webstore/detail/ighkeghglkbljjmoineeppdkailinjii"></a>
+						<noscript><a href="http://flattr.com/thing/495092/InstaBrowser-Instagramtm-viewer-for-Google-Chrometm" target="_blank">
+						<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html> 

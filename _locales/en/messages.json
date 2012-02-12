@@ -89,11 +89,11 @@
 		"description":	"Content"
 	},
 	"rate_first":{
-		"message":		"You're been using this extention for a while now. I hope your experience is great.",
+		"message":		"You're been using this extension for a while now. I hope your experience is great.",
 		"description":	"rate me"
 	},
 	"rate_secound":{
-		"message":		"Please help to promote this extention. Share it with your friends or rate it in the Google Chrome Store. It will be a small step for you, one giant step for this extention.",
+		"message":		"Please help to promote this extension. Share it with your friends or rate it in the Google Chrome Store. It will be a small step for you, one giant step for this extension.",
 		"description":	"rate me"
 	},
 	"rate_now":{
@@ -111,5 +111,47 @@
 	"rate_me":{
 		"message":		"Rate me",
 		"description":	"rate me"
+	},
+	"opt_removeaccess_lb":{
+		"message":		"Remove all connections to Instagram™",
+		"description":	"option"
+	},
+	"opt_action_saved":{
+		"message":		"Saved",
+		"description":	"option"
+	},
+	"opt_removeaccess_desc":{
+		"message":		"This option remove all Instagram™ data in the extension. We don't have longer accass to your account. Please have in mind, next time you start the extension, it will request new access. If you're loged in in Instagram™ and haven't remove the permissions for this app you grand access immediately.",
+		"description":	"option"
+	},
+	"opt_removeaccess_btn":{
+		"message":		"remove access",
+		"description":	"option"
+	},
+	"opt_imageinfo_lb":{
+		"message":		"Picture credits",
+		"description":	"option"
+	},
+	"opt_imageinfo_desc":{
+		"message":		"All images comes via Instagram™ and are owned by the uploader. We don't have control about the content of the photos.<br />The Icsons we use in this extension are under the Creative Commons (by-nc-sa) and designed by Gentleface.com and Christian F. Burprich.",
+		"description":	"option"
+	},
+	"opt_insta_options":{
+		"message":		"$NAME$ Options",
+		"description":	"option",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+	},
+	"opt_translation_ln":{
+		"message":		"Translations",
+		"description":	"option"
+	},
+	"opt_translation_desc":{
+		"message":		"Thank you all who helped with the translation of this extension.<br />If you are interested to help please contact me.",
+		"description":	"option"
 	}
+
 }

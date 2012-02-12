@@ -89,11 +89,11 @@
 		"description":	"Content"
 	},
 	"rate_first":{
-		"message":		"Du benutzt diese Extention schon eine ganze weile. Ich hoffe deine Erfahrungen mit ihr sind gut.",
+		"message":		"Du benutzt diese Extension schon eine ganze weile. Ich hoffe deine Erfahrungen mit ihr sind gut.",
 		"description":	"rate me"
 	},
 	"rate_secound":{
-		"message":		"Bitte hilf dabei sie zu verbreiten. Teile sie mit deinen Freunden oder bewerte sie im Google Chrome Store. Es ist ein kleiner Schritt für dich, aber ein riesen Schritt für die Extention",
+		"message":		"Bitte hilf dabei sie zu verbreiten. Teile sie mit deinen Freunden oder bewerte sie im Google Chrome Store. Es ist ein kleiner Schritt für dich, aber ein riesen Schritt für die Extension",
 		"description":	"rate me"
 	},
 	"rate_now":{
