@@ -295,6 +295,7 @@ var readStream = function(getData, sendData){
     				var likeclass = '';
     				var liketext = '';
     				var evenodd = '';
+    				var last = '';
 
 
     				if(value.user_has_liked == true){
@@ -305,13 +306,17 @@ var readStream = function(getData, sendData){
     					liketext = chrome.i18n.getMessage("content_like");
     				}
 
-    				if(anz % 2){
+    				if(id % 2){
     					evenodd = 'even';
     				} else {
     					evenodd = 'odd';
     				}
+    				
+    				if( id == msg.data.length -1){
+    				    last = 'lastimg';
+    				}
 
-    				$('#images').append('<div style="margin-bottom: 5px;" class="imageframe imageframe-' + evenodd + '">' +
+    				$('#images').append('<div style="margin-bottom: 5px;" class="imageframe imageframe-' + evenodd + ' img-' + id + ' ' + last + '">' +
     				    //Build Author
     					buildAuthor(value.caption) +
     					
@@ -344,6 +349,12 @@ var readStream = function(getData, sendData){
     			}
 
     		});
+    		$(document).scroll(function(){
+                console.log($('#footer').position().top - $(this).scrollTop() - 544);
+                if($('#footer').position().top - $(this).scrollTop() - 544 < 0){
+                    console.log('load');
+                }
+            });
         }
     });
 }
@@ -366,6 +377,7 @@ showUser();
 startFeed();
 
 $(function(){
+    
     if(localStorage.lastGetData || localStorage.lastSendData){
         //readStream(localStorage.lastGetData, localStorage.lastSendData);
         $('#lastsave').html('<a href="#" title="' + chrome.i18n.getMessage("head_load_title") + '" onclick="readStream(\'' + localStorage.lastGetData + '\', \'' + localStorage.lastSendData + '\'); trackClick(\'Load last position\', \'show\');">' + chrome.i18n.getMessage("head_load") + '</a>');

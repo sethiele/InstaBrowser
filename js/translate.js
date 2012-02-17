@@ -22,5 +22,6 @@ $(function(){
         $('#insta-options').html(chrome.i18n.getMessage("opt_insta_options", "InstaBrowser"));
         $('#translationinfo').html(chrome.i18n.getMessage("opt_translation_ln"));
         $('#translation-desc').html(chrome.i18n.getMessage("opt_translation_desc"));
+        $('#sharethis').html(chrome.i18n.getMessage("opt_share"));
     }
 });

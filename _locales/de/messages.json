@@ -111,5 +111,54 @@
 	"rate_me":{
 		"message":		"Bewerte mich",
 		"description":	"rate me"
+	},
+	"rate_me":{
+		"message":		"Rate me",
+		"description":	"rate me"
+	},
+	"opt_removeaccess_lb":{
+		"message":		"Entferne alle Verbindungen zu Instagram™",
+		"description":	"option"
+	},
+	"opt_action_saved":{
+		"message":		"Saved",
+		"description":	"option"
+	},
+	"opt_removeaccess_desc":{
+		"message":		"Diese Option entfernt alle daten von Instagram™ aus dieser Erweiterung. Wir werden nicht länger Zugriff auf deinen Account haben. Bitte denke dran, wenn du die Erweiterung erneut startest wird sie wieder Zugriff auf deinen Account erbitten. Wenn du dabei bei Instagram™ eingeloggt bist und den Zugriff dort entfernt hast wird die Erweiterung sofort neuen Zugriff gewährt bekommen.",
+		"description":	"option"
+	},
+	"opt_removeaccess_btn":{
+		"message":		"Zugriff entfernen",
+		"description":	"option"
+	},
+	"opt_imageinfo_lb":{
+		"message":		"Bildernachweis",
+		"description":	"option"
+	},
+	"opt_imageinfo_desc":{
+		"message":		"Alle Bilder kommen via Instagram™ und sind Eigentum des Nutzers. Wir haben keine Kontrolle über den Inhalt der Bilder.<br />Die Icons die wir in dieser Erweiterung nutzen unterliegen der Creative Commons Licence (by-nc-sa) und sind designed von Gentleface.com und Christian F. Burprich.",
+		"description":	"option"
+	},
+	"opt_insta_options":{
+		"message":		"$NAME$ Optionen",
+		"description":	"option Title",
+		"placeholders": {
+			"name": {
+				"content": "$1"
+			}
+		}
+	},
+	"opt_translation_ln":{
+		"message":		"Übersetzungen",
+		"description":	"option"
+	},
+	"opt_translation_desc":{
+		"message":		"Danke an jeden der beim übersetzen dieser Erweiterung geholfen hat.<br />Wenn du dabei helfen möchtest kontaktiere mich einfach.",
+		"description":	"option"
+	},
+	"opt_share":{
+		"message":		"Sein nett, Teile diese Erweiterung mit anderen",
+		"description":	"option"
 	}
 }

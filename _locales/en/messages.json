@@ -121,7 +121,7 @@
 		"description":	"option"
 	},
 	"opt_removeaccess_desc":{
-		"message":		"This option remove all Instagram™ data in the extension. We don't have longer accass to your account. Please have in mind, next time you start the extension, it will request new access. If you're loged in in Instagram™ and haven't remove the permissions for this app you grand access immediately.",
+		"message":		"This option removes all Instagram™ data in the extension. We don't have access any longer to your account. Please keep in mind that it will request new access the next time you start the extension. If you're logged in into Instagram™ and haven't removed the permissions for this app you grand access immediately.",
 		"description":	"option"
 	},
 	"opt_removeaccess_btn":{
@@ -133,12 +133,12 @@
 		"description":	"option"
 	},
 	"opt_imageinfo_desc":{
-		"message":		"All images comes via Instagram™ and are owned by the uploader. We don't have control about the content of the photos.<br />The Icsons we use in this extension are under the Creative Commons (by-nc-sa) and designed by Gentleface.com and Christian F. Burprich.",
+		"message":		"All images come via Instagram™ and are owned by the uploader. We don't have control over the content of the photos.<br />The icons we use in this extension are under the Creative Commons Licence (by-nc-sa) and designed by Gentleface.com and Christian F. Burprich.",
 		"description":	"option"
 	},
 	"opt_insta_options":{
 		"message":		"$NAME$ Options",
-		"description":	"option",
+		"description":	"option Title",
 		"placeholders": {
 			"name": {
 				"content": "$1"
@@ -150,7 +150,11 @@
 		"description":	"option"
 	},
 	"opt_translation_desc":{
-		"message":		"Thank you all who helped with the translation of this extension.<br />If you are interested to help please contact me.",
+		"message":		"Thanks to everyone who helped with the translation of this extension.<br />If you are interested to help please contact me.",
+		"description":	"option"
+	},
+	"opt_share":{
+		"message":		"Be social, share this Extension",
 		"description":	"option"
 	}
 
