@@ -96,23 +96,23 @@ var followstatus = function(uid){
 		 	var followin = '';
 		 	var followout = '';
 		 	if(msg.data.incoming_status == 'followed_by'){
-		 	    followin = 'follows you';
+		 	    followin = chrome.i18n.getMessage("content_followsyou");
 		 	} else if(msg.data.incoming_status == 'requested_by'){
-		 	    followin = 'pending friend request';
+		 	    followin = chrome.i18n.getMessage("content_pendingfreq");
 		 	} else if(msg.data.incoming_status == 'blocked_by_you'){
-		 	    followin = 'blocking';
+		 	    followin = chrome.i18n.getMessage("content_blocking");
 		 	} else if(msg.data.incoming_status == 'none') {
-                followin = 'dosn\'t follow you';
+                followin = chrome.i18n.getMessage("content_nofollow");
 		 	} else {
 		 	    followin = msg.data.incoming_status;
 		 	}
 		 	
 		 	if(msg.data.outgoing_status == 'follows'){
-		 	    followout = 'following';
+		 	    followout = chrome.i18n.getMessage("content_following");
 		 	} else if(msg.data.outgoing_status == 'requested'){
-		 	    followout = 'you are waiting for permissions';
+		 	    followout = chrome.i18n.getMessage("content_waitfollow");
 		 	} else if(msg.data.outgoing_status == 'none'){
-		 	    followout = '<a href="#" class="addfriend" data-uid="' + uid + '">follow</a>';
+		 	    followout = '<a href="#" class="addfriend" data-uid="' + uid + '">' + chrome.i18n.getMessage("content_follow") + '</a>';
 		 	} else {
 		 	    followout = msg.data.outgoing_status;
 		 	}

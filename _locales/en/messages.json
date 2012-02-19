@@ -88,6 +88,34 @@
 		"message": 		"Comment",
 		"description":	"Content"
 	},
+	"content_followsyou":{
+		"message":		"follows you",
+		"description":	"content"
+	},	
+	"content_pendingfreq":{
+		"message":		"pending friend request",
+		"description":	"content"
+	},	
+	"content_blocking":{
+		"message":		"blocking",
+		"description":	"content"
+	},	
+	"content_nofollow":{
+		"message":		"dosn't follow you",
+		"description":	"content"
+	},	
+	"content_following":{
+		"message":		"following",
+		"description":	"content"
+	},	
+	"content_waitfollow":{
+		"message":		"you are waiting for permission",
+		"description":	"content"
+	},	
+	"content_follow":{
+		"message":		"follow",
+		"description":	"content"
+	},
 	"rate_first":{
 		"message":		"You're been using this extension for a while now. I hope your experience is great.",
 		"description":	"rate me"
