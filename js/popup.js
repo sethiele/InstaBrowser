@@ -34,8 +34,27 @@ var displayUser = function(nickname, uid, classname, fullname){
 	return '<b class="username ' + classname + '" data-uid="' + uid + '">' + nickname + fullname + '</b>';
 }
 
+var uname2Id = function(username){
+    var uid = '';
+    $.ajax({
+		url: APIURL + "/users/search",
+		async: false,
+		data: "access_token=" + instaAuth.getAccessToken() + "&q=" + username,
+		success: function(users){
+		    $.each(users.data, function(lfd, user){
+		        if(username == user.username){
+		            uid = user.id;
+		        }
+	        });
+	    }
+	});
+	return uid;
+}
+
+
 var computeContent = function(text){
 	text = text.replace(/#(\S*)/g,'<a class="hash" href="#" data-hash="$1">#$1</a>');
+	text = text.replace(/@(\S*)/g,'<a class="cusername" href="#" data-uname="$1">@$1</a>');
 	return text;
 }
 
@@ -465,6 +484,14 @@ $(function(){
 	    $('#headline').html('#' + $(this).data('hash'));
 	    readStream('/tags/' + $(this).data('hash') + '/media/recent');
 	    return false;
+	});
+	
+	$('.cusername').live('click', function(){
+        uid = uname2Id($(this).data('uname'));
+        trackClick('User', 'show', uid);
+        $('#headline').html('');
+	    showUser( uid );
+        readStream('/users/' + uid + '/media/recent');
 	});
 	
 	$('.write_comment').live('click', function(){
