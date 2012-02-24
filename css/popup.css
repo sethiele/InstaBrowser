@@ -91,7 +91,6 @@ td.from-time{
 
 .likelink,
 .write_comment,
-.sm,
 #incoming_follow,
 #outcoming_follow{
 	text-decoration: none;
@@ -103,6 +102,30 @@ td.from-time{
 	color: #000000 !important;
 	border-radius: 5px;
 	display: inline-block;
+}
+
+.sm{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/sm.png');
+    background-repeat: none;
+}
+
+.sm-gpl{
+    background-position: -24px 0;
+}
+
+.sm-fb{
+    background-position: -48px 0;
+}
+
+.sm-tw{
+    background-position: 0 0;
+}
+
+.sm-pin{
+    background-position: -72px 0;
 }
 
 #outcoming_follow a{

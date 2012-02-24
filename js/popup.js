@@ -358,9 +358,10 @@ var readStream = function(getData, sendData, nextUrl){
     						'<a href="" class="' + likeclass + ' likelink" data-image="' + value.id + '" data-likestat="' + likeclass + '">' + liketext + '</a>' +
     						'<a href="#" class="write_comment" data-photoid="' + value.id + '">' + chrome.i18n.getMessage("content_comment") + '</a>' +
     						'<br />' + 
-    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;">Google+</a>' +
-    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;">Facebook</a>' +
-    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=InstaBrowser&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;">Twitter</a>' +
+    						'<a href="#" target="_blank" class="sm sm-gpl" onclick="window.open(\'https://plusone.google.com/_/+1/confirm?hl=en&url=' + value.link + '\', \'Share on google+\', \'height=440,width=620,scrollbars=true\');return false;" title="Google+"></a>' +
+    						'<a href="#" target="_blank" class="sm sm-fb" onclick="window.open(\'http://www.facebook.com/sharer.php?u=' + value.link + '\', \'Share on facebook\', \'height=440,width=620,scrollbars=true\');return false;" title="Facebook"></a>' +
+    						'<a href="#" target="_blank" class="sm sm-tw" onclick="window.open(\'http://twitter.com/share?url=' + value.link + '&amp;via=InstaBrowser&amp;text=&amp;lang=en\', \'Share on twitter\', \'height=225,width=685,scrollbars=true\');return false;" title="Twitter"></a>' +
+                            '<a href="#" target="_blank" class="sm sm-pin" onclick="window.open(\'http://pinterest.com/pin/create/button/?url=' + value.link + '&media=' + value.images.standard_resolution.url + '&description=%20via%20InstaBrowser%20for%20Chrome\', \'Share on Pinterest\', \'width=665,height=300\'); return false;" title="Pinterest"></a>' +
     					'</div>' + 
     					'<div class="writecomment" id="writecomment-' + value.id + '">' +
     					    'Write a comment<br />' + 
