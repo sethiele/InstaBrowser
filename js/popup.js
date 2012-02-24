@@ -1,5 +1,6 @@
 var APIURL = 'https://api.instagram.com/v1';
 var now = new Date();
+var Scrollpoint = 0;
 
 var instaAuth = new OAuth2('instagram', {
   client_id: 'e416342f656d42ceb5e0392d7c7d9a8b',
@@ -279,23 +280,28 @@ var popular = function(){
     
 }
 
-var readStream = function(getData, sendData){
-    showLoader();
+var readStream = function(getData, sendData, nextUrl){
+    
     var requestURL = APIURL + "/users/self/feed";
     
     
-    
-    if(getData){
-        requestURL = APIURL + getData;
-        localStorage.lastGetData    = getData;
+    if(!nextUrl)
+    {
+        showLoader();
+        if(getData){
+            requestURL = APIURL + getData;
+            localStorage.lastGetData    = getData;
+        } else {
+        }
+
+        if(sendData){
+            sendData = '&' + sendData;
+            localStorage.lastSendData   = sendData;
+        } else {
+            sendData = '';
+        }   
     } else {
-    }
-    
-    if(sendData){
-        sendData = '&' + sendData;
-        localStorage.lastSendData   = sendData;
-    } else {
-        sendData = '';
+        requestURL = nextUrl;
     }
     
     
@@ -366,14 +372,13 @@ var readStream = function(getData, sendData){
     			}catch(e){
     				console.log('ERROR', value);
     			}
-
     		});
-    		$(document).scroll(function(){
-                console.log($('#footer').position().top - $(this).scrollTop() - 544);
-                if($('#footer').position().top - $(this).scrollTop() - 544 < 0){
-                    console.log('load');
-                }
-            });
+    		if(typeof msg.pagination != 'undefined'){
+    		    $('#images').append('<div class="loadinfo"><a href="#test" class="loadmore" data-loadmore="' + msg.pagination.next_url + '">' + chrome.i18n.getMessage("content_loadmore") +'</a></div>');
+    		    setTimeout(function(){window.scrollTo(0, Scrollpoint); Scrollpoint = 0;}, 800);
+    		} else {
+    		    $('#images').append('<div class="loadinfo">' + chrome.i18n.getMessage("content_lastimage") +'</div>');
+    		}
         }
     });
 }
@@ -436,6 +441,15 @@ $(function(){
     });
     
 	// Binding
+	$('.loadmore').live('click', function(e){
+	    e.preventDefault();
+	    $('.loadinfo').hide();
+	    Scrollpoint = $(window).scrollTop();
+	    readStream('','', $(this).data('loadmore'));
+	    window.scrollTo(0, $(window).scrollTop());
+	});
+	
+	
 	$('.rate').live('click', function(){
         console.log($(this).attr('id')); 
 	   

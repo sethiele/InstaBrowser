@@ -222,3 +222,11 @@ a.unlike:before {
 .ui-dialog-titlebar-close{
     display: none;
 }
+
+.loadinfo {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #DDD;
+    margin: 10px 0;
+}

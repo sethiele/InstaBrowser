@@ -116,6 +116,14 @@
 		"message":		"Folge",
 		"description":	"content"
 	},
+	"content_loadmore":{
+		"message":		"lade mehr",
+		"description":	"content"
+	},
+	"content_lastimage":{
+		"message":		"letztes Bild",
+		"description":	"content"
+	},
 	"rate_first":{
 		"message":		"Du benutzt diese Extension schon eine ganze weile. Ich hoffe deine Erfahrungen mit ihr sind gut.",
 		"description":	"rate me"
