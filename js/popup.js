@@ -458,14 +458,17 @@ $(function(){
             case 'ratenow':
 	            console.log('rate');
 	            localStorage.lastVoteCheck = -1;
+	            trackClick('Rate', 'now');
 	            window.open('http://goo.gl/rFcxj', '_blank');
 	            break;
 	        case 'asklater':
 	            console.log('asklater');
+	            trackClick('Rate', 'later');
 	            localStorage.lastVoteCheck = now.getTime();
 	            break;
 	        case 'dontask':
 	            console.log('dont ask');
+	            trackClick('Rate', 'never');
 	            localStorage.lastVoteCheck = -1;
 	            break;
 	   }
