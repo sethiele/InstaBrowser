@@ -3,9 +3,9 @@ var now = new Date();
 var Scrollpoint = 0;
 
 var instaAuth = new OAuth2('instagram', {
-  client_id: 'e416342f656d42ceb5e0392d7c7d9a8b',
-  client_secret: '77b89ee61294498396a11be3e1646d89',
-  api_scope: 'basic+comments+relationships+likes'
+  client_id: client_id,
+  client_secret: client_secret,
+  api_scope: api_scope
 });
 
 
